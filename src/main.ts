@@ -1,6 +1,8 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 
+import english from "./words"
+
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -26,12 +28,23 @@ function createWindow() {
 app.on("ready", () => {
   createWindow();
 
+  let currentWords :Array<string> = [];
+    Array.from(Array(15)).forEach((x, i) => {
+      getRandomWord(currentWords)
+    });
+    console.log(currentWords)
+
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
+
   });
 });
+
+function getRandomWord(currentWords: Array<string>){
+  currentWords.push(english[Math.floor(Math.random() * english.length)])
+}
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
