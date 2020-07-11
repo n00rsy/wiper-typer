@@ -12,12 +12,32 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
+
+    <link rel="stylesheet" href="styles.css">
+
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>, Chromium
-    <span id="chrome-version"></span>, and Electron
-    <span id="electron-version"></span>.
+    <div class="right-fade"></div>
+    <div class="left-fade"></div>
+    <div id = "stats-container">
+
+      <table>
+        <tr>
+          <th>Average Speed</th>
+          <th>Current Speed</th>
+          <th>Accuracy</th>
+        </tr>
+        <tr>
+          <td>0 wpm</td>
+          <td>0 wpm</td>
+          <td>100%</td>
+        </tr>
+      </table>
+
+    </div>
+    <div id = "text-container">
+      <h1 id = "text">The quick brown fox jumps over the lazy dog</h1>
+    </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./dist/renderer.js"></script>
